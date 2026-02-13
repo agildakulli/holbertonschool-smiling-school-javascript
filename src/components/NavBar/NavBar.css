@@ -1,7 +1,7 @@
 .custom-navbar {
   width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid #e8e8e8;
+  background: #071629 !important;
+  border-bottom: 1px solid #ffffff1f;
 }
 
 .nav-container {
@@ -32,9 +32,13 @@
 
 .txt-link {
   text-decoration: none;
-  color: #0a0a0a;
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.9rem;
+}
+
+.txt-link.active {
+  color: #c271ff;
 }
 
 .menu-toggle {
@@ -61,10 +65,10 @@
     align-items: flex-start;
     min-width: 180px;
     padding: 0.8rem;
-    background: #fff;
-    border: 1px solid #e8e8e8;
+    background: #071629;
+    border: 1px solid #ffffff1f;
     border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 20px #0000004d;
   }
 
   .nav-links.open {

@@ -15,8 +15,10 @@ const MainNavbar = () => {
     <Navbar
       expand="lg"
       expanded={expanded}
+      bg="dark"
       variant="dark"
-      className="py-3 bg-transparent custom-navbar"
+      className="py-3 custom-navbar"
+      style={{ backgroundColor: "#071629" }}
     >
       <Container>
         <Navbar.Brand

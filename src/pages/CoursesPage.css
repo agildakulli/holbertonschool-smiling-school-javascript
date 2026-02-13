@@ -1,11 +1,13 @@
 .courses-page {
   background: #f3f3f5;
   min-height: 100vh;
+  padding-top: 76px;
   padding-bottom: 56px;
 }
 
 .courses-top {
   width: 100%;
+  background-image: linear-gradient(#071629c7, #071629e0), url("../assets/pic_3.jpg");
   background-size: cover;
   background-position: center;
   padding: 78px 0 52px;
@@ -15,7 +17,7 @@
 
 .quote-main {
   margin: 0;
-  font-size: clamp(30px, 4vw, 56px);
+  font-size: 56px;
   font-weight: 800;
   line-height: 1.1;
 }
@@ -40,13 +42,13 @@
 
 .form-container .form-control,
 .form-container .form-select {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #ffffff33;
+  border: 1px solid #ffffff4d;
   color: #fff;
 }
 
 .form-container .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffffd9;
 }
 
 .form-container .form-select option {
@@ -68,26 +70,13 @@
   height: 100%;
   border: 1px solid #ececec;
   border-radius: 5px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-}
-
-.thumb-wrap {
-  position: relative;
+  box-shadow: 0 3px 8px #0000000d;
 }
 
 .course-image {
   height: 146px;
   width: 100%;
   object-fit: cover;
-}
-
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 62px;
-  height: 62px;
 }
 
 .course-card .card-body {
@@ -107,31 +96,16 @@
   margin-bottom: 8px;
 }
 
-.course-meta {
-  color: #c271ff;
-  font-size: 12px;
-  font-weight: 700;
-  margin-bottom: 6px;
-}
-
-.course-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .star {
   color: #c271ff;
   font-size: 15px;
 }
 
-.mins {
-  color: #c271ff;
-  font-size: 12px;
-  font-weight: 700;
-}
-
 @media (max-width: 768px) {
+  .courses-page {
+    padding-top: 68px;
+  }
+
   .courses-top {
     padding: 56px 0 34px;
   }

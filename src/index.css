@@ -3,8 +3,8 @@
   --bg-dark: #0b1630;
   --bg-darker: #071126;
   --text: #ffffff;
-  --muted: rgba(255, 255, 255, 0.8);
-  --muted2: rgba(255, 255, 255, 0.65);
+  --muted: #ffffffcc;
+  --muted2: #ffffffa6;
   --accent: #b35cff;
   --max: 1100px;
 }
@@ -58,7 +58,7 @@ img { display: block; max-width: 100%; }
   display: grid;
   place-items: center;
   border-radius: 10px;
-  background: rgba(255,255,255,0.12);
+  background: #ffffff1f;
 }
 
 .nav-links {
@@ -67,7 +67,7 @@ img { display: block; max-width: 100%; }
   padding: 0;
   margin: 0;
   gap: 20px;
-  color: rgba(255,255,255,0.85);
+  color: #ffffffd9;
   font-weight: 700;
   font-size: 13px;
 }
@@ -84,7 +84,7 @@ img { display: block; max-width: 100%; }
   position: relative;
   min-height: 680px;
   padding: 120px 0 60px;
-  background: linear-gradient(180deg, rgba(7,17,38,0.9) 0%, rgba(7,17,38,0.97) 55%, var(--bg-dark) 100%);
+  background: linear-gradient(180deg, #071126e6 0%, #071126f7 55%, var(--bg-dark) 100%);
   color: var(--text);
   overflow: hidden;
 }
@@ -105,7 +105,7 @@ img { display: block; max-width: 100%; }
   content:"";
   position:absolute;
   inset:0;
-  background: radial-gradient(900px 500px at 60% 20%, rgba(179,92,255,.35), transparent 60%);
+  background: radial-gradient(900px 500px at 60% 20%, #b35cff59, transparent 60%);
 }
 
 .hero-content {
@@ -119,17 +119,17 @@ img { display: block; max-width: 100%; }
   display: inline-block;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: #ffffff1a;
+  border: 1px solid #ffffff1f;
   font-weight: 800;
   font-size: 12px;
   letter-spacing: 0.6px;
-  color: rgba(255,255,255,0.9);
+  color: #ffffffe6;
 }
 
 .hero-title {
   margin: 0 0 16px;
-  font-size: clamp(44px, 6vw, 74px);
+  font-size: 74px;
   line-height: 1;
   letter-spacing: -1.4px;
   font-weight: 900;
@@ -143,12 +143,12 @@ img { display: block; max-width: 100%; }
   background: var(--accent);
   color: #fff;
   font-weight: 900;
-  box-shadow: 0 12px 28px rgba(179,92,255,0.25);
+  box-shadow: 0 12px 28px #b35cff40;
 }
 
 .hero-subtitle {
   margin: 22px 0 18px;
-  color: rgba(179,92,255,1);
+  color: #b35cff;
   font-weight: 900;
 }
 
@@ -176,8 +176,8 @@ img { display: block; max-width: 100%; }
 }
 
 .pro-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
+  background: #ffffff0f;
+  border: 1px solid #ffffff1a;
   border-radius: 16px;
   padding: 16px;
   text-align: center;
@@ -189,7 +189,7 @@ img { display: block; max-width: 100%; }
   object-fit: cover;
   border-radius: 999px;
   margin: 0 auto 10px;
-  border: 2px solid rgba(179,92,255,0.55);
+  border: 2px solid #b35cff8c;
 }
 
 .pro-card h3 {
@@ -203,5 +203,5 @@ img { display: block; max-width: 100%; }
   margin: 0;
   font-size: 12px;
   line-height: 1.5;
-  color: rgba(255,255,255,0.70);
+  color: #ffffffb3;
 }

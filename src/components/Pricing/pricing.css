@@ -1,6 +1,6 @@
 .pricing-component {
   color: #ffffff;
-  background: linear-gradient(rgba(7, 22, 41, 0.75), rgba(7, 22, 41, 0.85)),
+  background: linear-gradient(#071629bf, #071629d9),
     url("../../assets/pic_2.jpg") center/cover no-repeat;
   border-radius: 10px;
 }
@@ -19,18 +19,18 @@
 }
 
 .txt-month {
-  color: rgba(255, 255, 255, 0.6);
+  color: #ffffff99;
   font-size: 13px;
 }
 
 .pricing-row {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid #ffffff33;
   padding: 16px 0;
   align-items: center;
 }
 
 .pricing-row:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid #ffffff33;
 }
 
 .check-icon {
