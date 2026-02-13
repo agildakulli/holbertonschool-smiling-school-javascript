@@ -1,62 +1,106 @@
 import { useEffect, useState } from "react";
 import { Card, Col, Container, Form, Row } from "react-bootstrap";
 import playIcon from "../assets/play.png";
+import quoteBg from "../assets/pic_3.jpg";
 import "./CoursesPage.css";
 
 export default function CoursesPage() {
   const [courses, setCourses] = useState([]);
   const [topics, setTopics] = useState([]);
   const [sorts, setSorts] = useState([]);
-  const [q, setQ] = useState(""), [topic, setTopic] = useState(""), [sort, setSort] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTopic, setSelectedTopic] = useState("");
+  const [selectedSort, setSelectedSort] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const p = new URLSearchParams();
-    if (q) p.set("q", q);
-    if (topic) p.set("topic", topic);
-    if (sort) p.set("sort", sort);
-    setLoading(true);
-    fetch(`https://smileschool-api.hbtn.info/courses?${p}`)
-      .then(r => r.json())
-      .then(d => {
-        setCourses(d.courses || []);
-        setTopics(d.topics || []);
-        setSorts(d.sorts || []);
+    const queryParams = new URLSearchParams();
+    if (searchQuery) queryParams.set("q", searchQuery);
+    if (selectedTopic) queryParams.set("topic", selectedTopic);
+    if (selectedSort) queryParams.set("sort", selectedSort);
+
+    setIsLoading(true);
+    fetch(`https://smileschool-api.hbtn.info/courses?${queryParams}`)
+      .then((response) => response.json())
+      .then((data) => {
+        setCourses(data.courses || []);
+        setTopics(data.topics || []);
+        setSorts(data.sorts || []);
+        if (!searchQuery && data.q) setSearchQuery(data.q);
+        if (!selectedTopic && data.topics?.[0]) setSelectedTopic(data.topics[0]);
+        if (!selectedSort && data.sorts?.[0]) setSelectedSort(data.sorts[0]);
       })
-      .finally(() => setLoading(false));
-  }, [q, topic, sort]);
+      .finally(() => setIsLoading(false));
+  }, [searchQuery, selectedTopic, selectedSort]);
 
   return (
-    <Container className="py-4 courses-page">
-      <Row className="mb-4 form-container">
-        <Col><Form.Control placeholder="Search" value={q} onChange={e => setQ(e.target.value)} /></Col>
-        <Col><Form.Select value={topic} onChange={e => setTopic(e.target.value)}>
-          <option value="">Topic</option>{topics.map(t => <option key={t}>{t}</option>)}
-        </Form.Select></Col>
-        <Col><Form.Select value={sort} onChange={e => setSort(e.target.value)}>
-          <option value="">Sort</option>{sorts.map(s => <option key={s}>{s}</option>)}
-        </Form.Select></Col>
-      </Row>
+    <main className="courses-page">
+      <section className="courses-top" style={{ backgroundImage: `linear-gradient(rgba(7,22,41,.78), rgba(7,22,41,.88)), url(${quoteBg})` }}>
+        <Container>
+          <p className="quote-main">
+            " Don't cry because it's over. <span>Smile</span> because it happened. "
+          </p>
+        </Container>
+      </section>
 
-      <p>{loading ? "Loading..." : `${courses.length} videos`}</p>
+      <section className="form-container">
+        <Container>
+          <Row className="g-3">
+            <Col xs={12} md={4}>
+              <Form.Label className="filter-label">KEYWORDS</Form.Label>
+              <Form.Control
+                placeholder="Search by keywords"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+              />
+            </Col>
+            <Col xs={12} md={4}>
+              <Form.Label className="filter-label">TOPIC</Form.Label>
+              <Form.Select value={selectedTopic} onChange={(event) => setSelectedTopic(event.target.value)}>
+                <option value="">Topic</option>
+                {topics.map((topicOption) => <option key={topicOption}>{topicOption}</option>)}
+              </Form.Select>
+            </Col>
+            <Col xs={12} md={4}>
+              <Form.Label className="filter-label">SORT BY</Form.Label>
+              <Form.Select value={selectedSort} onChange={(event) => setSelectedSort(event.target.value)}>
+                <option value="">Sort</option>
+                {sorts.map((sortOption) => <option key={sortOption}>{sortOption}</option>)}
+              </Form.Select>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-      <Row>
-        {courses.map((v,i) => (
-          <Col key={i} md={3} className="mb-4">
-            <Card className="course-card">
-              <div className="position-relative thumb-wrap">
-                <Card.Img src={v.thumb_url || v.video_poster} className="course-image" />
-                <img src={playIcon} alt="" className="play-icon"/>
-              </div>
-              <Card.Body>
-                <Card.Title>{v.title || v.user_quote}</Card.Title>
-                <Card.Text>{v.sub_title || v.paragraph}</Card.Text>
-                <small className="course-meta">{v.author || v.username} • {v.duration || v.minutes}</small>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+      <Container className="courses-content">
+        <p className="courses-count">{isLoading ? "Loading..." : `${courses.length} video${courses.length === 1 ? "" : "s"}`}</p>
+
+        <Row className="g-4">
+          {courses.map((course, index) => (
+            <Col key={index} xs={12} sm={6} lg={3}>
+              <Card className="course-card">
+                <div className="thumb-wrap">
+                  <Card.Img src={course.thumb_url || course.video_poster} className="course-image" />
+                  <img src={playIcon} alt="" className="play-icon" />
+                </div>
+                <Card.Body>
+                  <Card.Title>{course.title || course.user_quote}</Card.Title>
+                  <Card.Text>{course.sub_title || course.paragraph}</Card.Text>
+                  <p className="course-meta">{course.author || course.username}</p>
+                  <div className="course-footer">
+                    <div>
+                      {[...Array(5)].map((_, idx) => (
+                        <span key={idx} className="star">{idx < (course.star || 0) ? "★" : "☆"}</span>
+                      ))}
+                    </div>
+                    <span className="mins">{course.duration || course.minutes}</span>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </main>
   );
 }

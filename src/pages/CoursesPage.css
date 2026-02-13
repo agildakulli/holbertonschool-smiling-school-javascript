@@ -1,17 +1,47 @@
 .courses-page {
-  max-width: 1120px;
+  background: #f3f3f5;
+  min-height: 100vh;
+  padding-bottom: 56px;
+}
+
+.courses-top {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 78px 0 52px;
+  color: #fff;
+  text-align: center;
+}
+
+.quote-main {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.quote-main span {
+  color: #c271ff;
 }
 
 .form-container {
+  width: 100%;
   background: #c271ff;
-  padding: 14px;
-  border-radius: 6px;
+  padding: 16px 0;
+}
+
+.filter-label {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.8px;
 }
 
 .form-container .form-control,
 .form-container .form-select {
   background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
 }
 
@@ -23,10 +53,21 @@
   color: #111;
 }
 
+.courses-content {
+  width: 100%;
+  padding-top: 30px;
+}
+
+.courses-count {
+  color: #72727d;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
 .course-card {
   height: 100%;
   border: 1px solid #ececec;
-  border-radius: 6px;
+  border-radius: 5px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -35,7 +76,7 @@
 }
 
 .course-image {
-  height: 145px;
+  height: 146px;
   width: 100%;
   object-fit: cover;
 }
@@ -45,11 +86,57 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 46px;
-  height: 46px;
+  width: 62px;
+  height: 62px;
+}
+
+.course-card .card-body {
+  padding: 12px;
+}
+
+.course-card .card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.course-card .card-text {
+  font-size: 13px;
+  color: #82828a;
+  min-height: 38px;
+  margin-bottom: 8px;
 }
 
 .course-meta {
   color: #c271ff;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.course-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.star {
+  color: #c271ff;
+  font-size: 15px;
+}
+
+.mins {
+  color: #c271ff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .courses-top {
+    padding: 56px 0 34px;
+  }
+
+  .quote-main {
+    font-size: 30px;
+  }
 }
