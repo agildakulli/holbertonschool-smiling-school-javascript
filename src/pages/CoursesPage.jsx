@@ -4,7 +4,7 @@ import playIcon from "../assets/play.png";
 import quoteBg from "../assets/pic_3.jpg";
 import "./CoursesPage.css";
 
-export default function CoursesPage() {
+function CoursesPage() {
   const [courses, setCourses] = useState([]);
   const [topics, setTopics] = useState([]);
   const [sorts, setSorts] = useState([]);
@@ -104,3 +104,5 @@ export default function CoursesPage() {
     </main>
   );
 }
+
+export default CoursesPage;
